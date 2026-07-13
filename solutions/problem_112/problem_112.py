@@ -1,4 +1,4 @@
-# My solution note: I count bouncy numbers until their proportion reaches exactly 99 percent.
+# Solution note: I count bouncy numbers until their proportion reaches exactly 99 percent.
 def non_bouncy(n):
     a = str(n)[0]
     bool_a = True

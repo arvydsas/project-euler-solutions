@@ -1,4 +1,4 @@
-# My solution note: I use Decimal square roots and sum the first 100 digits for irrational roots below 100.
+# Solution note: I use Decimal square roots and sum the first 100 digits for irrational roots below 100.
 from __future__ import print_function
 
 from math import sqrt

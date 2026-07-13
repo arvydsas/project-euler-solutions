@@ -1,4 +1,4 @@
-# My solution note: I sum Euler totients for denominators up to one million.
+# Solution note: I sum Euler totients for denominators up to one million.
 def primes(n):
 	primfac = []
 	d = 2

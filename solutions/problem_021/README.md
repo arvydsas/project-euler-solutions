@@ -4,6 +4,6 @@
 
 Find the sum of all amicable numbers below 10000.
 
-## My Solution
+## Solution
 
 I use divisor sums to identify amicable pairs below 10000 and add the matching values.

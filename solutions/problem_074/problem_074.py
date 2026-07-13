@@ -1,4 +1,4 @@
-# My solution note: I follow digit-factorial chains and count starting values that reach length 60 before repeating.
+# Solution note: I follow digit-factorial chains and count starting values that reach length 60 before repeating.
 def fac(a):
 	b=1
 	if a==0 or a==1:

@@ -1,4 +1,4 @@
-# My solution note: I count distinct prime factors for consecutive integers until four in a row qualify.
+# Solution note: I count distinct prime factors for consecutive integers until four in a row qualify.
 import math
 
 def is_integer(n):

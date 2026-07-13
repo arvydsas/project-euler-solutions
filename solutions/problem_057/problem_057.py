@@ -1,4 +1,4 @@
-# My solution note: I iterate the square-root-of-two convergents and count cases where the numerator has more digits.
+# Solution note: I iterate the square-root-of-two convergents and count cases where the numerator has more digits.
 import math
 
 def is_prime(n): # checks if the number n is prime -- OPTIMISED USING 6K OPTIMISATION

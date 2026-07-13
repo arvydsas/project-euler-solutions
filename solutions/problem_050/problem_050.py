@@ -1,4 +1,4 @@
-# My solution note: I generate primes and scan consecutive prime sums, printing prime sums found with long run lengths.
+# Solution note: I generate primes and scan consecutive prime sums, printing prime sums found with long run lengths.
 from p_euler import *
 
 primes=prime_gen(1000000)

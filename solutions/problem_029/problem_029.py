@@ -1,4 +1,4 @@
-# My solution note: I generate all powers in the requested range, sort them, and count distinct values.
+# Solution note: I generate all powers in the requested range, sort them, and count distinct values.
 pw=[]
 for i in range(2,101):
 	for j in range(2,101):

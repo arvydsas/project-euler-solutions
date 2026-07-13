@@ -1,4 +1,4 @@
-# My solution note: I build amicable chains using divisor sums, pruning numbers as chains are classified.
+# Solution note: I build amicable chains using divisor sums, pruning numbers as chains are classified.
 def is_prime(n): # checks if the number n is prime -- OPTIMISED USING 6K OPTIMISATION
     if n <= 1:
         return False

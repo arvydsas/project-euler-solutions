@@ -4,6 +4,6 @@
 
 For perimeters up to 1000, find the value that produces the most integer right-triangle solutions.
 
-## My Solution
+## Solution
 
 I brute-force integer right triangles for each perimeter and watch for the perimeter with the most hits.

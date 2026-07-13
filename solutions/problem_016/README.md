@@ -4,6 +4,6 @@
 
 Find the sum of the decimal digits of `2^1000`.
 
-## My Solution
+## Solution
 
 I compute 2^1000 directly and sum its decimal digits.

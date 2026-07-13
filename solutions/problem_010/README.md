@@ -4,6 +4,6 @@
 
 Find the sum of all primes below two million.
 
-## My Solution
+## Solution
 
 I generate primes below two million and sum them.

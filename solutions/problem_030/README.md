@@ -4,6 +4,6 @@
 
 Find the sum of all numbers that equal the sum of the fifth powers of their digits.
 
-## My Solution
+## Solution
 
 I test candidate numbers against the sum of the fifth powers of their digits.

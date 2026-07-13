@@ -4,6 +4,6 @@
 
 Find the smallest member of the longest amicable chain whose elements do not exceed one million.
 
-## My Solution
+## Solution
 
 I build amicable chains using divisor sums, pruning numbers as chains are classified.

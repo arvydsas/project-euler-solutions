@@ -1,4 +1,4 @@
-# My solution note: I iterate Fibonacci numbers until the current term reaches 1000 digits.
+# Solution note: I iterate Fibonacci numbers until the current term reaches 1000 digits.
 x=1
 y=2
 k=3

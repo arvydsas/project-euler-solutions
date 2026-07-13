@@ -4,6 +4,6 @@
 
 Find the sum of all numbers that equal the sum of the factorials of their digits.
 
-## My Solution
+## Solution
 
 I compare each candidate number with the sum of precomputed digit factorials.

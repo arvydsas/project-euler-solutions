@@ -1,4 +1,4 @@
-# My solution note: I generate primes, rotate the digits of each prime, and count those whose rotations all remain prime.
+# Solution note: I generate primes, rotate the digits of each prime, and count those whose rotations all remain prime.
 from p_euler import prime_gen, is_prime
 
 def circ(n):

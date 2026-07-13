@@ -1,4 +1,4 @@
-# My solution note: I read the provided large numbers from the local data file, print the running additions, and output the final sum.
+# Solution note: I read the provided large numbers from the local data file, print the running additions, and output the final sum.
 from pathlib import Path
 
 

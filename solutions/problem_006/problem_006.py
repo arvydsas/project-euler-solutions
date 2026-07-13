@@ -1,4 +1,4 @@
-# My solution note: I compute the two required quantities directly and subtract the sum of squares from the square of the sum.
+# Solution note: I compute the two required quantities directly and subtract the sum of squares from the square of the sum.
 def square_sum(a):
 	sum=0
 	for i in range(1,a+1):

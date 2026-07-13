@@ -4,6 +4,6 @@
 
 Add one hundred 50-digit numbers and report the first ten digits of the sum.
 
-## My Solution
+## Solution
 
 I read the provided large numbers from the local data file, print the running additions, and output the final sum.

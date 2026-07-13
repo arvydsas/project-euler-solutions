@@ -1,4 +1,4 @@
-# My solution note: I recursively count representations of 71 as a sum of primes.
+# Solution note: I recursively count representations of 71 as a sum of primes.
 import math
 
 def budai(n,ls):

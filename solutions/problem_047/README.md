@@ -4,6 +4,6 @@
 
 Find the first of four consecutive integers that each have four distinct prime factors.
 
-## My Solution
+## Solution
 
 I count distinct prime factors for consecutive integers until four in a row qualify.

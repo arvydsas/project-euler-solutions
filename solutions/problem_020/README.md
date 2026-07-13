@@ -4,6 +4,6 @@
 
 Find the sum of the decimal digits of `100!`.
 
-## My Solution
+## Solution
 
 I compute 100! with a small factorial helper and sum the digits.

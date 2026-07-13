@@ -1,4 +1,4 @@
-# My solution note: I test odd composite numbers against Goldbach's other conjecture until one fails.
+# Solution note: I test odd composite numbers against Goldbach's other conjecture until one fails.
 def primes(n):
 	ps, sieve = [], [True] * (n + 1)
 	for p in range(2, n + 1):

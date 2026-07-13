@@ -1,4 +1,4 @@
-# My solution note: I factor consecutive triangular-number components to count divisors until the threshold is exceeded.
+# Solution note: I factor consecutive triangular-number components to count divisors until the threshold is exceeded.
 from pathlib import Path
 
 

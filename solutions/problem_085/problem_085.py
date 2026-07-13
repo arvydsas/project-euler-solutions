@@ -1,4 +1,4 @@
-# My solution note: I estimate the matching grid dimension from the rectangle-count formula and track the closest area.
+# Solution note: I estimate the matching grid dimension from the rectangle-count formula and track the closest area.
 import math
 import time
 

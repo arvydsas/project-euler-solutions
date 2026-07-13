@@ -1,4 +1,4 @@
-# My solution note: I test square candidates ending in 3 or 7 against the required digit pattern.
+# Solution note: I test square candidates ending in 3 or 7 against the required digit pattern.
 import math
 
 def ff(n):

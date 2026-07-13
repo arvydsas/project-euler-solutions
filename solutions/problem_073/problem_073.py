@@ -1,4 +1,4 @@
-# My solution note: I brute-force reduced fractions between 1/3 and 1/2 with denominators up to 12000.
+# Solution note: I brute-force reduced fractions between 1/3 and 1/2 with denominators up to 12000.
 import math
 from math import gcd
 

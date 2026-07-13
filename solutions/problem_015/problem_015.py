@@ -1,4 +1,4 @@
-# My solution note: I compute the central binomial coefficient through factorials and write the answer to the local side-output file.
+# Solution note: I compute the central binomial coefficient through factorials and write the answer to the local side-output file.
 from pathlib import Path
 
 

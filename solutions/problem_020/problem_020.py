@@ -1,4 +1,4 @@
-# My solution note: I compute 100! with a small factorial helper and sum the digits.
+# Solution note: I compute 100! with a small factorial helper and sum the digits.
 def fac(x):
 	prod=1
 	for i in range(1,x+1):

@@ -4,6 +4,6 @@
 
 Find the sum of the eleven primes that remain prime when digits are removed one at a time from either side.
 
-## My Solution
+## Solution
 
 I generate primes and test whether truncating digits from either side always leaves a prime.

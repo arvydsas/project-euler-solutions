@@ -4,6 +4,6 @@
 
 Find the Pythagorean triplet `a < b < c` with `a + b + c = 1000`, then return `abc`.
 
-## My Solution
+## Solution
 
 I search possible triples until the Pythagorean condition and the required total are both met.

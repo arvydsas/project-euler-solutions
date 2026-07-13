@@ -1,4 +1,4 @@
-# My solution note: I compute phi(n), check digit permutations, and track the smallest n/phi(n) ratio.
+# Solution note: I compute phi(n), check digit permutations, and track the smallest n/phi(n) ratio.
 def primes(n):
 	primfac = []
 	d = 2

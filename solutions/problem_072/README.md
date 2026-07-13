@@ -4,6 +4,6 @@
 
 Count reduced proper fractions with denominators up to one million.
 
-## My Solution
+## Solution
 
 I sum Euler totients for denominators up to one million.

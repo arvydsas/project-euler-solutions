@@ -1,4 +1,4 @@
-# My solution note: I test candidate numbers against the sum of the fifth powers of their digits.
+# Solution note: I test candidate numbers against the sum of the fifth powers of their digits.
 ls=[]
 for i in range(2,1000000):
 	a=str(i)

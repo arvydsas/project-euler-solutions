@@ -1,4 +1,4 @@
-# My solution note: I solve each Sudoku using deterministic fills first, then recursive guessing when needed.
+# Solution note: I solve each Sudoku using deterministic fills first, then recursive guessing when needed.
 import random
 from pathlib import Path
 

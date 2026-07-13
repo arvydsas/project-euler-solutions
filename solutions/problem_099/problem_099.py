@@ -1,4 +1,4 @@
-# My solution note: I compare base-exponent pairs through exponent times logarithm and report the largest line.
+# Solution note: I compare base-exponent pairs through exponent times logarithm and report the largest line.
 import math
 from pathlib import Path
 

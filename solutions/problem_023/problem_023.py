@@ -1,4 +1,4 @@
-# My solution note: I generate abundant numbers, mark sums of pairs, and add the values that never appear as such a sum.
+# Solution note: I generate abundant numbers, mark sums of pairs, and add the values that never appear as such a sum.
 def prime_fac(n):
     ls=[]
     for i in range(2,n+1):

@@ -4,6 +4,6 @@
 
 Find the 10001st prime number.
 
-## My Solution
+## Solution
 
 I generate primes by trial division until reaching the requested prime index.

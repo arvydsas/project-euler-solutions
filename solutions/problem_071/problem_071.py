@@ -1,4 +1,4 @@
-# My solution note: I scan denominators up to one million and keep the best fraction immediately left of 3/7.
+# Solution note: I scan denominators up to one million and keep the best fraction immediately left of 3/7.
 import math
 
 ss = 0

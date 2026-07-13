@@ -1,4 +1,4 @@
-# My solution note: I compute continued-fraction periods for square roots and count odd periods.
+# Solution note: I compute continued-fraction periods for square roots and count odd periods.
 import math
 
 def root_per(n):

@@ -4,6 +4,6 @@
 
 Given a 1000-digit number, find the greatest product of 13 adjacent digits.
 
-## My Solution
+## Solution
 
 I keep the thousand-digit number as a string and scan each 13-digit window for the largest product.

@@ -4,6 +4,6 @@
 
 Count the primes below one million that remain prime under every rotation of their digits.
 
-## My Solution
+## Solution
 
 I generate primes, rotate the digits of each prime, and count those whose rotations all remain prime.

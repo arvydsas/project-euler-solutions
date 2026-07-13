@@ -1,4 +1,4 @@
-# My solution note: I compare each candidate number with the sum of precomputed digit factorials.
+# Solution note: I compare each candidate number with the sum of precomputed digit factorials.
 def factorialise(a):
 	b=str(a)
 	g=[1,1,2,6,24,120,720,5040,40320,362880]

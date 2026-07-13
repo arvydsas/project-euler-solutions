@@ -1,4 +1,4 @@
-# My solution note: I simulate calendar days from 1901 through 2000 and count Sundays that land on the first of a month.
+# Solution note: I simulate calendar days from 1901 through 2000 and count Sundays that land on the first of a month.
 year = 1901
 month = 1
 day = 1

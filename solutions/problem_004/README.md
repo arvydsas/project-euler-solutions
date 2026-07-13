@@ -4,6 +4,6 @@
 
 Find the largest palindrome made from the product of two three-digit numbers.
 
-## My Solution
+## Solution
 
 I brute-force products of three-digit numbers and keep the largest one that reads the same backwards.

@@ -4,6 +4,6 @@
 
 Count the ways to make two pounds using standard UK coin denominations.
 
-## My Solution
+## Solution
 
 I use a recursive count over UK coin denominations to count ways to make 200 pence.

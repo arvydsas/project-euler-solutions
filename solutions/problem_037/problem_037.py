@@ -1,4 +1,4 @@
-# My solution note: I generate primes and test whether truncating digits from either side always leaves a prime.
+# Solution note: I generate primes and test whether truncating digits from either side always leaves a prime.
 from p_euler import is_prime, prime_gen
 
 def is_trunc_prime(n):

@@ -4,6 +4,6 @@
 
 Find the smallest odd composite that cannot be written as a prime plus twice a square.
 
-## My Solution
+## Solution
 
 I test odd composite numbers against Goldbach's other conjecture until one fails.

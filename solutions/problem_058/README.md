@@ -4,6 +4,6 @@
 
 In a square spiral, find the side length where the ratio of primes on the diagonals first falls below 10 percent.
 
-## My Solution
+## Solution
 
 I generate spiral diagonal values layer by layer and track the prime ratio.

@@ -4,6 +4,6 @@
 
 Find the grid area whose number of contained rectangles is closest to two million.
 
-## My Solution
+## Solution
 
 I estimate the matching grid dimension from the rectangle-count formula and track the closest area.
