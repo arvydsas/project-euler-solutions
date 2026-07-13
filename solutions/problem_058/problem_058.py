@@ -1,3 +1,4 @@
+# My solution note: I generate spiral diagonal values layer by layer and track the prime ratio.
 def is_prime(n): # checks if the number n is prime -- OPTIMISED USING 6K OPTIMISATION
     if n <= 1:
         return False
@@ -26,3 +27,4 @@ while True:
     i+=1 
 
 print(2*i+1)
+

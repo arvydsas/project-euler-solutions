@@ -1,3 +1,4 @@
+# My solution note: I use divisor sums to identify amicable pairs below 10000 and add the matching values.
 def primes(n):
 	primfac = []
 	d = 2

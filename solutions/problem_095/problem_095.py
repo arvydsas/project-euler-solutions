@@ -1,3 +1,4 @@
+# My solution note: I build amicable chains using divisor sums, pruning numbers as chains are classified.
 def is_prime(n): # checks if the number n is prime -- OPTIMISED USING 6K OPTIMISATION
     if n <= 1:
         return False
@@ -78,6 +79,7 @@ max_length = 0
 min_element = 0
 ls_n = []
 
+# Keep a removable list of candidates so chains already ruled out are not revisited.
 for n in range(3,10**6):
     ls_n.append(n)
 
@@ -92,11 +94,13 @@ for n in ls_n:
         print(n,len(ls_n))
     while True:
         n = div_sum(n)
+        # Stop chains that leave the allowed range or hit a number already removed.
         if n >= 10**6 or n not in ls_n:
             for i in chain:
                 ls_n.remove(i)
             break
         elif n in chain:
+            # A repeated value means the tail of the current path is an amicable chain.
             chain = chain[chain.index(n):]
             if len(chain) > max_length:
                 max_length = len(chain)
@@ -112,6 +116,7 @@ for n in ls_n:
 
     
 print(max_length, min_element)
+
 
 
 

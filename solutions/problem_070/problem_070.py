@@ -1,3 +1,4 @@
+# My solution note: I compute phi(n), check digit permutations, and track the smallest n/phi(n) ratio.
 def primes(n):
 	primfac = []
 	d = 2
@@ -36,6 +37,7 @@ def cc(l,k):
 
 m = 1000
 
+# Brute-force n and keep lowering the n / phi(n) ratio when phi(n) is a digit permutation.
 for n in range(2,10**7):
     phi = tot(n)
     if cc(n_list(n),n_list(phi)):
@@ -43,4 +45,5 @@ for n in range(2,10**7):
             m = n/phi
             print(m, phi, n)
     
+
 

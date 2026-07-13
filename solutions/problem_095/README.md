@@ -3,3 +3,7 @@
 [Project Euler problem 95](https://projecteuler.net/problem=95)
 
 Find the smallest member of the longest amicable chain whose elements do not exceed one million.
+
+## My Solution
+
+I build amicable chains using divisor sums, pruning numbers as chains are classified.

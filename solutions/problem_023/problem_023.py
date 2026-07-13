@@ -1,3 +1,4 @@
+# My solution note: I generate abundant numbers, mark sums of pairs, and add the values that never appear as such a sum.
 def prime_fac(n):
     ls=[]
     for i in range(2,n+1):
@@ -37,10 +38,14 @@ def divisors(n):
 
 ls=[]
 ls1=[]
+
+# First collect the abundant numbers below the known upper bound.
 for i in range(2,28124):
     if sum(divisors(i)) > 2*i:
         ls.append(i)
         print(i)
+
+# Then record every value that can be written as a sum of two abundant numbers.
 for i in range(0,len(ls)):
     print(ls[i])
     for j in range(i,len(ls)):
@@ -51,6 +56,7 @@ for i in range(0,len(ls)):
 
 sum=0
 
+# Anything never marked in ls1 contributes to the final answer.
 for i in range(1,28124):
     if i not in ls1:
         sum+=i
@@ -58,3 +64,4 @@ print(sum)
 
 #runtime ~45 min
     
+

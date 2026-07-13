@@ -1,3 +1,4 @@
+# My solution note: I brute-force integer right triangles for each perimeter and watch for the perimeter with the most hits.
 max=0
 sols=[]
 for p in range(1,1001):

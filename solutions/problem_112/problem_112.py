@@ -1,3 +1,4 @@
+# My solution note: I count bouncy numbers until their proportion reaches exactly 99 percent.
 def non_bouncy(n):
     a = str(n)[0]
     bool_a = True
@@ -19,6 +20,7 @@ for i in range(0,10**6+6*10**5):
         if ss/i == 0.99:
             print(ss, i, ss/i)
             break
+
 
 
 

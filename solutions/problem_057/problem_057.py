@@ -1,3 +1,4 @@
+# My solution note: I iterate the square-root-of-two convergents and count cases where the numerator has more digits.
 import math
 
 def is_prime(n): # checks if the number n is prime -- OPTIMISED USING 6K OPTIMISATION
@@ -156,3 +157,4 @@ for i in range(1,1001):
         ss+=1
         print(i, 'YES')
 print(ss)
+

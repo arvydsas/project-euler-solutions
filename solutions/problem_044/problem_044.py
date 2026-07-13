@@ -1,3 +1,4 @@
+# My solution note: I generate pentagonal numbers and search for a pair whose sum and difference are pentagonal.
 def is_pentagonal(n):
     if ((1+24*n)**0.5)%6 == 5 :
         return True
@@ -17,4 +18,5 @@ while l:
                 l=False
     i+=1
             
+
 

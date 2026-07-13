@@ -1,3 +1,4 @@
+# My solution note: I sum Euler totients for denominators up to one million.
 def primes(n):
 	primfac = []
 	d = 2
@@ -29,3 +30,4 @@ for i in range(1,(10**6)+1):
         print(i)
 print(ss)
     
+

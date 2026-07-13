@@ -1,3 +1,4 @@
+# My solution note: I generate primes and test whether truncating digits from either side always leaves a prime.
 from p_euler import is_prime, prime_gen
 
 def is_trunc_prime(n):
@@ -21,3 +22,4 @@ for i in ls:
         if k==11:
             break
 print('Sum of 11 truncatable primes is: ',s)
+

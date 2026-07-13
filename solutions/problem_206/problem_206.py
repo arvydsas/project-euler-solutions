@@ -1,3 +1,4 @@
+# My solution note: I test square candidates ending in 3 or 7 against the required digit pattern.
 import math
 
 def ff(n):
@@ -24,4 +25,5 @@ for i in range(int(math.sqrt(n_min)/10),int(math.sqrt(n_max)/10)):
         break
     elif i%10**5 == 0:
         print(i)
+
 

@@ -1,3 +1,4 @@
+# My solution note: I compute Euler totients by factoring each n, then track the largest n/phi(n) ratio.
 def primes(n):
 	primfac = []
 	d = 2

@@ -1,3 +1,4 @@
+# My solution note: I compute the central binomial coefficient through factorials and write the answer to the local side-output file.
 from pathlib import Path
 
 
@@ -15,3 +16,4 @@ print(c)
 file=open(g,'w')
 file.write(str(c))
 file.close()
+

@@ -3,3 +3,7 @@
 [Project Euler problem 50](https://projecteuler.net/problem=50)
 
 Find the prime below one million that can be written as the longest sum of consecutive primes.
+
+## My Solution
+
+I generate primes and scan consecutive prime sums, printing prime sums found with long run lengths.

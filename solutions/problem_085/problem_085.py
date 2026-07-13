@@ -1,3 +1,4 @@
+# My solution note: I estimate the matching grid dimension from the rectangle-count formula and track the closest area.
 import math
 import time
 
@@ -23,3 +24,4 @@ for m in range(2,2000):
 
 print(super_n * super_m)
 print(laikas - time.time())
+

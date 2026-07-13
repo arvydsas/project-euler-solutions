@@ -1,3 +1,4 @@
+# My solution note: I count distinct prime factors for consecutive integers until four in a row qualify.
 import math
 
 def is_integer(n):
@@ -30,3 +31,4 @@ def final(n):
             return i-k+1
     return 'insuficient range'
 print(final(4))
+

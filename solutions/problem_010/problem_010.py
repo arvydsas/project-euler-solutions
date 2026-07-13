@@ -1,3 +1,4 @@
+# My solution note: I generate primes below two million and sum them.
 def prime_gen(a):
 	a=int(a)
 	p=[2]

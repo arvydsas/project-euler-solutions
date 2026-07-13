@@ -1,3 +1,4 @@
+# My solution note: I compute continued-fraction periods for square roots and count odd periods.
 import math
 
 def root_per(n):
@@ -36,3 +37,4 @@ for i in range(1,10001):
         ss+=1
 
 print(ss)
+

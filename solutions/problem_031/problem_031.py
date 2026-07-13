@@ -1,3 +1,4 @@
+# My solution note: I use a recursive count over UK coin denominations to count ways to make 200 pence.
 import math
 
 def ways(n):
@@ -15,4 +16,5 @@ def ways(n):
 
 
 print(ways((200,0)))
+
 

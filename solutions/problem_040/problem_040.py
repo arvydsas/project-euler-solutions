@@ -1,3 +1,4 @@
+# My solution note: I build Champernowne's decimal string directly and multiply the requested indexed digits.
 stri=''
 for i in range(1,1000000):
 	stri+=str(i)

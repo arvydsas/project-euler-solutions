@@ -1,3 +1,4 @@
+# My solution note: I compare base-exponent pairs through exponent times logarithm and report the largest line.
 import math
 from pathlib import Path
 
@@ -25,4 +26,5 @@ for n in range(0,1000):
         l_number = n
 
 print(l_number + 1,mm)
+
 

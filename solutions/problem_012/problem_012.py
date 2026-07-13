@@ -1,3 +1,4 @@
+# My solution note: I factor consecutive triangular-number components to count divisors until the threshold is exceeded.
 from pathlib import Path
 
 
@@ -47,3 +48,4 @@ file.write(str(prod))
 file.write('    ')
 file.write(str(int(i*(i+1)/2)))
 file.close()
+

@@ -1,4 +1,4 @@
-
+# My solution note: I solve each Sudoku using deterministic fills first, then recursive guessing when needed.
 import random
 from pathlib import Path
 
@@ -57,6 +57,7 @@ class Sudoku:
         if self.sud[row_index][column_index] != 0:
             return []
 
+        # Remove every value already present in the same row, column, or 3x3 square.
         used_values = set(self.sud[row_index])
 
         for row in self.sud:
@@ -179,6 +180,7 @@ class Sudoku:
     def solve_deterministic(self):
         changed = True
 
+        # Repeat simple deductions until none of them changes the grid.
         while changed:
             changed = self.fill_single_possible_values()
             changed = self.fill_square_unique_locations() or changed
@@ -198,6 +200,7 @@ class Sudoku:
         best_location = None
         best_values = []
 
+        # Choose the empty cell with the fewest candidates to keep guessing narrow.
         for row_index in range(9):
             for column_index in range(9):
                 if self.sud[row_index][column_index] != 0:
@@ -237,6 +240,7 @@ class Sudoku:
             saved_sudoku = [row[:] for row in self.sud]
             self.sud[row_index][column_index] = value
 
+            # Backtrack if the guessed value eventually leads to a contradiction.
             if self.solve_with_guesses():
                 return True
 
@@ -310,4 +314,5 @@ if __name__ == "__main__":
     print(f"{solved_count} out of {len(puzzles)} puzzles solved")
     print(f"All puzzles solved: {solved_count == len(puzzles)}")
     print(f"Answer: {answer(SUDOKU_FILE)}")
+
 

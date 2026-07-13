@@ -1,3 +1,4 @@
+# My solution note: I read the provided large numbers from the local data file, print the running additions, and output the final sum.
 from pathlib import Path
 
 
@@ -13,3 +14,4 @@ while line != 'X':
 	sum+=line
 	print (sum)
 print(sum)
+

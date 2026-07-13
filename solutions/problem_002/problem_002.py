@@ -1,3 +1,4 @@
+# My solution note: I generate Fibonacci terms iteratively and add only the even values below the limit.
 a=1
 b=2
 c=0

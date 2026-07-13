@@ -1,3 +1,4 @@
+# My solution note: I simulate calendar days from 1901 through 2000 and count Sundays that land on the first of a month.
 year = 1901
 month = 1
 day = 1
@@ -51,3 +52,4 @@ while ls[0] != 2001:
     if ls[0] % 2000 ==0:
         print(ls)
 print(s)
+

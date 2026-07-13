@@ -1,3 +1,4 @@
+# My solution note: I recursively count representations of 71 as a sum of primes.
 import math
 
 def budai(n,ls):
@@ -35,3 +36,4 @@ def prime_gen(a): #returns a list of primes less than or equal to a. -- NOT OPTI
 print(budai(71,prime_gen(71)))
 
     
+

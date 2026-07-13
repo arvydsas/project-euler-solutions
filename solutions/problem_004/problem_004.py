@@ -1,3 +1,4 @@
+# My solution note: I brute-force products of three-digit numbers and keep the largest one that reads the same backwards.
 b=0
 pol=[]
 for i in range(100,1000):

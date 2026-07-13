@@ -1,3 +1,4 @@
+# My solution note: I generate primes by trial division until reaching the requested prime index.
 def prime_gen(a):
 	a=int(a)
 	p=[2]
