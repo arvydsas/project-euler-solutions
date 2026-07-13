@@ -1,38 +1,28 @@
-"""Problem 58: Spiral primes."""
-
-
-def is_prime(number: int) -> bool:
-    if number < 2:
+def is_prime(n): # checks if the number n is prime -- OPTIMISED USING 6K OPTIMISATION
+    if n <= 1:
         return False
-    if number in (2, 3):
+    elif n <= 3:
         return True
-    if number % 2 == 0 or number % 3 == 0:
+    elif (n % 2 == 0) or (n % 3 == 0):
         return False
-
-    factor = 5
-    while factor * factor <= number:
-        if number % factor == 0 or number % (factor + 2) == 0:
+    i = 5
+    while i**2 <= n:
+        if (n % i == 0) or (n % (i+2) == 0):
             return False
-        factor += 6
-
+        i+=6
     return True
 
 
-def solve() -> int:
-    prime_count = 0
-    diagonal_count = 1
-    side_length = 1
+n_primes = 0
+i = 1
 
-    while True:
-        side_length += 2
-        square = side_length * side_length
-        step = side_length - 1
-        prime_count += sum(is_prime(square - step * offset) for offset in range(1, 4))
-        diagonal_count += 4
+while True:
+    side_length = 2*i + 1
+    ls = [(2*i+1)**2 -6*i,(2*i+1)**2 -4*i, (2*i+1)**2 -2*i]
+    for j in ls:
+        if is_prime(j):
+            n_primes += 1
+    if n_primes/(4*i + 1) < 0.1: break
+    i+=1 
 
-        if prime_count * 10 < diagonal_count:
-            return side_length
-
-
-if __name__ == "__main__":
-    print(solve())
+print(2*i+1)

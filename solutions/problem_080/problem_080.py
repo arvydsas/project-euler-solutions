@@ -1,24 +1,19 @@
-"""Problem 80: Square root digital expansion."""
+from __future__ import print_function
 
+from math import sqrt
 from decimal import Decimal, getcontext
-from math import isqrt
 
 
 getcontext().prec = 102
 
-
-def digit_sum(number: int, digits: int = 100) -> int:
-    root_digits = str(Decimal(number).sqrt()).replace(".", "")[:digits]
-    return sum(int(digit) for digit in root_digits)
-
-
-def solve(limit: int = 100) -> int:
-    return sum(
-        digit_sum(number)
-        for number in range(1, limit)
-        if isqrt(number) ** 2 != number
-    )
+total = 0
+for a in range(100):
+    if not sqrt(a) % 1 == 0:
+        ans = str(Decimal(a).sqrt()).replace('.', '')[:100]
+        digits = map(int, ans)
+        '''print(a, sum(digits), "--------", sep='\n')'''
+        total += sum(digits)
 
 
-if __name__ == "__main__":
-    print(solve())
+
+print(total)

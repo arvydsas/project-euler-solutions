@@ -1,27 +1,25 @@
-"""Problem 21: Amicable numbers."""
-
-
-def divisor_sums(limit: int) -> list[int]:
-    sums = [0] * limit
-
-    for divisor in range(1, limit // 2 + 1):
-        for multiple in range(divisor * 2, limit, divisor):
-            sums[multiple] += divisor
-
-    return sums
-
-
-def solve(limit: int = 10_000) -> int:
-    sums = divisor_sums(limit)
-    total = 0
-
-    for number in range(2, limit):
-        partner = sums[number]
-        if partner < limit and partner != number and sums[partner] == number:
-            total += number
-
-    return total
-
-
-if __name__ == "__main__":
-    print(solve())
+def primes(n):
+	primfac = []
+	d = 2
+	while d*d <= n:
+		while (n % d) == 0:
+			primfac.append(d)
+			n/=d
+		d+=1
+	if n > 1:
+		n=int(n)
+		primfac.append(n)
+	return primfac
+def div_sum(a):
+	divisors=[]
+	for i in range(1,a//2+1):
+		if (a/i)%1==0:
+			divisors.append(i)
+	return sum(divisors)
+amicable=[]
+for i in range(1,10001):
+	print(i)
+	if i!=div_sum(i) and i==div_sum(div_sum(i)):
+		amicable.append(i)
+print(sum(amicable))
+print(amicable)

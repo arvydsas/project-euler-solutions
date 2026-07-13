@@ -1,37 +1,37 @@
-"""Problem 77: Prime summations."""
+import math
+
+def budai(n,ls):
+    if n == 0:
+        return 1
+    elif len(ls) == 0:
+        return 0
+    ls1 = []
+    for i in range(0,len(ls)-1):
+        ls1.append(ls[i])
+    den = ls[-1]
+    n1 = n
+    ss = 0
+    for i in range(0,math.floor(n1/den) + 1):
+        ss += budai(n1 - i*den,ls1)
+    return ss
+
+def prime_gen(a): #returns a list of primes less than or equal to a. -- NOT OPTIMISED  
+	a=int(a)
+	p=[2]
+	for i in range(3,a+1):
+		c=0
+		for j in p:
+			if j>i**.5:
+				break
+			if i%j==0:
+				c+=1
+				break
+		if c==0:
+			p.append(i)
+	return p
 
 
-def primes_up_to(limit: int) -> list[int]:
-    sieve = [True] * (limit + 1)
-    sieve[:2] = [False, False]
 
-    for number in range(2, int(limit**0.5) + 1):
-        if sieve[number]:
-            for multiple in range(number * number, limit + 1, number):
-                sieve[multiple] = False
+print(budai(71,prime_gen(71)))
 
-    return [number for number, is_prime in enumerate(sieve) if is_prime]
-
-
-def ways_to_write(total: int) -> int:
-    ways = [0] * (total + 1)
-    ways[0] = 1
-
-    for prime in primes_up_to(total):
-        for amount in range(prime, total + 1):
-            ways[amount] += ways[amount - prime]
-
-    return ways[total]
-
-
-def solve(minimum_ways: int = 5_000) -> int:
-    number = 2
-
-    while ways_to_write(number) <= minimum_ways:
-        number += 1
-
-    return number
-
-
-if __name__ == "__main__":
-    print(solve())
+    

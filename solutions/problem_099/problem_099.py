@@ -1,26 +1,28 @@
-"""Problem 99: Largest exponential."""
-
-from math import log
+import math
 from pathlib import Path
 
+#Reading the file
+file = open(Path(__file__).with_name("a.txt"), "r")
 
-BASE_EXP_FILE = Path(__file__).with_name("problem_099_base_exp.txt")
+mm = 0
 
+for n in range(0,1000):
+    
+    words = file.readline()
 
-def solve(path: Path = BASE_EXP_FILE) -> int:
-    best_line = 0
-    best_value = 0.0
+    snumber = ''
+    ls = []
 
-    for line_number, line in enumerate(path.read_text().splitlines(), start=1):
-        base, exponent = (int(value) for value in line.split(","))
-        value = exponent * log(base)
+    for i in words:
+        if i != ',':
+            snumber += i
+        else:
+            ls.append(int(snumber))
+            snumber = ''
+    ls.append(int(snumber))
+    if(math.log10(ls[0])*ls[1]) > mm:
+        mm = math.log10(ls[0])*ls[1]
+        l_number = n
 
-        if value > best_value:
-            best_line = line_number
-            best_value = value
+print(l_number + 1,mm)
 
-    return best_line
-
-
-if __name__ == "__main__":
-    print(solve())

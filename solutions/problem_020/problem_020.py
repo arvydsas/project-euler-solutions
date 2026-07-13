@@ -1,11 +1,10 @@
-"""Problem 20: Factorial digit sum."""
-
-from math import factorial
-
-
-def solve(number: int = 100) -> int:
-    return sum(int(digit) for digit in str(factorial(number)))
-
-
-if __name__ == "__main__":
-    print(solve())
+def fac(x):
+	prod=1
+	for i in range(1,x+1):
+		prod*=i
+	return prod
+a=str(fac(100))	
+sum=0
+for i in a:
+	sum+=int(i)
+print(sum)

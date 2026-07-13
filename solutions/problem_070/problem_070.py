@@ -1,35 +1,46 @@
-"""Problem 70: Totient permutation."""
+def primes(n):
+	primfac = []
+	d = 2
+	while d*d <= n:
+		while (n % d) == 0:
+			primfac.append(d)
+			n/=d
+		d+=1
+	if n > 1:
+		n=int(n)
+		primfac.append(n)
+	return primfac
+def tot(n):
+	ls=primes(n)
+	ls1=[]
+	prod=n
+	for i in ls:
+		if i in ls1:
+			pass
+		else:
+			prod*=(1-1/i)
+			ls1.append(i)
+	return int(prod)
 
+def n_list(n):
+    ls = [0,0,0,0,0,0,0,0,0,0]
+    for i in str(n):
+        ls[int(i)] += 1
+    return(ls)
 
-def totients(limit: int) -> list[int]:
-    phi = list(range(limit + 1))
+def cc(l,k):
+    for i in range(0,10):
+        if l[i] != k[i]:
+            return False
+    return True
 
-    for number in range(2, limit + 1):
-        if phi[number] == number:
-            for multiple in range(number, limit + 1, number):
-                phi[multiple] -= phi[multiple] // number
+m = 1000
 
-    return phi
+for n in range(2,10**7):
+    phi = tot(n)
+    if cc(n_list(n),n_list(phi)):
+        if m > n/phi:
+            m = n/phi
+            print(m, phi, n)
+    
 
-
-def is_permutation(first: int, second: int) -> bool:
-    return sorted(str(first)) == sorted(str(second))
-
-
-def solve(limit: int = 10_000_000) -> int:
-    phi = totients(limit)
-    best_number = 0
-    best_ratio = float("inf")
-
-    for number in range(2, limit):
-        if is_permutation(number, phi[number]):
-            ratio = number / phi[number]
-            if ratio < best_ratio:
-                best_number = number
-                best_ratio = ratio
-
-    return best_number
-
-
-if __name__ == "__main__":
-    print(solve())

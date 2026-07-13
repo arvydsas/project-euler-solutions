@@ -1,28 +1,25 @@
-"""Problem 85: Counting rectangles."""
+import math
+import time
 
 
-def rectangle_count(width: int, height: int) -> int:
-    return width * (width + 1) * height * (height + 1) // 4
+ss = 10000
+super_n = 0
+super_m = 0
+laikas = time.time()
 
+for m in range(2,2000):
+    c = 8*(10**6)/(m*(m+1))
+    d = math.sqrt(1 + 4*c)
+    n1 = math.floor((-1+d)/2)
+    n2 = math.ceil((-1+d)/2)
+    if abs(n1*(n1+1)*m*(m+1) - (8*10**6)) < ss:
+        ss = abs(n1*(n1+1)*m*(m+1) - (8*10**6))
+        super_n = n1
+        super_m = m
+    if abs(n2*(n2+1)*m*(m+1) - (8*10**6)) < ss:
+        ss = abs(n2*(n2+1)*m*(m+1) - (8*10**6))
+        super_n = n2
+        super_m = m
 
-def solve(target: int = 2_000_000) -> int:
-    best_area = 0
-    best_difference = target
-
-    for width in range(1, 2_000):
-        for height in range(1, 2_000):
-            count = rectangle_count(width, height)
-            difference = abs(target - count)
-
-            if difference < best_difference:
-                best_area = width * height
-                best_difference = difference
-
-            if count > target and height > width:
-                break
-
-    return best_area
-
-
-if __name__ == "__main__":
-    print(solve())
+print(super_n * super_m)
+print(laikas - time.time())

@@ -1,27 +1,29 @@
-"""Problem 35: Circular primes."""
+from p_euler import prime_gen, is_prime
 
+def circ(n):
+    a=str(n)
+    if len(a)>1:
+        if a[1]=='0':
+            return 0
+    return int(a[1:]+a[0])
+print('Generating primes')
+ls = prime_gen(1000000)
+k = 0
+print('Checking if primes are circular')
+for i in ls:
+    n = i
+    for j in range(0,len(str(i))+2):
+        n = circ(n)
+        if not is_prime(n):
+            n = 0
+            break
+    if n != 0:
+        print(i)
+        k += 1
 
-def prime_sieve(limit: int) -> list[bool]:
-    sieve = [True] * limit
-    sieve[:2] = [False, False]
+print(k,' Circular primes encountered')
 
-    for number in range(2, int(limit**0.5) + 1):
-        if sieve[number]:
-            for multiple in range(number * number, limit, number):
-                sieve[multiple] = False
+        
+    
+    
 
-    return sieve
-
-
-def rotations(number: int) -> list[int]:
-    text = str(number)
-    return [int(text[index:] + text[:index]) for index in range(len(text))]
-
-
-def solve(limit: int = 1_000_000) -> int:
-    primes = prime_sieve(limit)
-    return sum(1 for number in range(limit) if all(primes[rotation] for rotation in rotations(number)))
-
-
-if __name__ == "__main__":
-    print(solve())

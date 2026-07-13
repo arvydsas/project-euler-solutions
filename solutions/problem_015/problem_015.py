@@ -1,11 +1,17 @@
-"""Problem 15: Lattice paths."""
-
-from math import comb
+from pathlib import Path
 
 
-def solve(size: int = 20) -> int:
-    return comb(size * 2, size)
-
-
-if __name__ == "__main__":
-    print(solve())
+def fac(x):
+	prod=1
+	for x in range(1,x+1):
+		prod*=x
+	return prod
+g=Path(__file__).with_name('a.txt')
+a=fac(40)
+b=fac(20)
+c=a/b**2
+c=int(c)
+print(c)
+file=open(g,'w')
+file.write(str(c))
+file.close()

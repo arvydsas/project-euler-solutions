@@ -1,30 +1,20 @@
-"""Problem 44: Pentagon numbers."""
+def is_pentagonal(n):
+    if ((1+24*n)**0.5)%6 == 5 :
+        return True
+    else:
+        return False
 
+ls=[1]
+i=1
+l=True
 
-def pentagonal(index: int) -> int:
-    return index * (3 * index - 1) // 2
+while l:
+    ls.append(int(i*(3*i-1)/2))
+    for j in range(1,i):
+        if ls[i]-ls[j] in ls:
+            if is_pentagonal(ls[i]+ls[j]):
+                print(ls[i]-ls[j])
+                l=False
+    i+=1
+            
 
-
-def is_pentagonal(number: int) -> bool:
-    root = int((1 + 24 * number) ** 0.5)
-    return root * root == 1 + 24 * number and (1 + root) % 6 == 0
-
-
-def solve() -> int:
-    pentagons = []
-    index = 1
-
-    while True:
-        current = pentagonal(index)
-
-        for previous in pentagons:
-            difference = current - previous
-            if is_pentagonal(difference) and is_pentagonal(current + previous):
-                return difference
-
-        pentagons.append(current)
-        index += 1
-
-
-if __name__ == "__main__":
-    print(solve())

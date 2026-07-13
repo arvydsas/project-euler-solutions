@@ -1,43 +1,23 @@
-"""Problem 46: Goldbach's other conjecture."""
-
-
-def is_prime(number: int) -> bool:
-    if number < 2:
-        return False
-    if number in (2, 3):
-        return True
-    if number % 2 == 0 or number % 3 == 0:
-        return False
-
-    factor = 5
-    while factor * factor <= number:
-        if number % factor == 0 or number % (factor + 2) == 0:
-            return False
-        factor += 6
-
-    return True
-
-
-def follows_conjecture(number: int) -> bool:
-    prime = 2
-    while prime < number:
-        remainder = (number - prime) // 2
-        root = int(remainder**0.5)
-        if root * root == remainder:
-            return True
-        prime += 1
-        while prime < number and not is_prime(prime):
-            prime += 1
-    return False
-
-
-def solve() -> int:
-    number = 9
-    while True:
-        if not is_prime(number) and not follows_conjecture(number):
-            return number
-        number += 2
-
-
-if __name__ == "__main__":
-    print(solve())
+def primes(n):
+	ps, sieve = [], [True] * (n + 1)
+	for p in range(2, n + 1):
+		if sieve[p]:
+			ps.append(p)
+			for i in range(p * p, n + 1, p):
+				sieve[i] = False
+	return ps
+k=1
+while True:
+	Bool=False
+	k+=2
+	prime=primes(k)
+	if k in prime:
+		pass
+	else:
+		for i in prime:
+			z=((k-i)/2)**0.5
+			if z.is_integer():
+				Bool=True
+		if not Bool:
+			break
+print(k)

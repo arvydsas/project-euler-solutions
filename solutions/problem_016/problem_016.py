@@ -1,9 +1,5 @@
-"""Problem 16: Power digit sum."""
-
-
-def solve(power: int = 1000) -> int:
-    return sum(int(digit) for digit in str(2**power))
-
-
-if __name__ == "__main__":
-    print(solve())
+a=2**1000
+sum=0
+for i in str(a):
+	sum+=int(i)
+print(sum)

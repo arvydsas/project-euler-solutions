@@ -1,15 +1,15 @@
-"""Problem 13: Large sum."""
-
 from pathlib import Path
 
 
-NUMBER_FILE = Path(__file__).with_name("problem_013_numbers.txt")
-
-
-def solve(path: Path = NUMBER_FILE) -> int:
-    numbers = [int(line) for line in path.read_text().splitlines() if line.isdigit()]
-    return int(str(sum(numbers))[:10])
-
-
-if __name__ == "__main__":
-    print(solve())
+file1=open(Path(__file__).with_name('b.txt'),'r')
+line='00'
+sum=0
+while line != 'X':
+	line=file1.readline()
+	if line=='X\n' or line=='X':
+		break
+	line=int(line[0:len(line)])
+	print(line)
+	sum+=line
+	print (sum)
+print(sum)

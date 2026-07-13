@@ -1,18 +1,19 @@
-"""Problem 73: Counting fractions in a range."""
-
+import math
 from math import gcd
 
 
-def solve(limit: int = 12_000) -> int:
-    total = 0
-
-    for denominator in range(2, limit + 1):
-        for numerator in range(denominator // 3 + 1, (denominator - 1) // 2 + 1):
-            if gcd(numerator, denominator) == 1:
-                total += 1
-
-    return total
+def coprime(a,b):
+    if gcd(a,b) == 1:
+        return True
+    else:
+        return False
 
 
-if __name__ == "__main__":
-    print(solve())
+k = 12000
+ss = 0
+
+for n in range(4,k+1):
+    for i in range(math.ceil(n/3), math.ceil(n/2)):
+        if coprime(n, i):
+            ss+=1
+print(ss)

@@ -1,10 +1,9 @@
-"""Problem 6: Sum square difference."""
-
-
-def solve(limit: int = 100) -> int:
-    numbers = range(1, limit + 1)
-    return sum(numbers) ** 2 - sum(number * number for number in numbers)
-
-
-if __name__ == "__main__":
-    print(solve())
+def square_sum(a):
+	sum=0
+	for i in range(1,a+1):
+		sum+=i**2
+	return sum
+c=(101*50)**2-square_sum(100)
+file=open('a.txt','w')
+file.write(str(c))
+file.close()

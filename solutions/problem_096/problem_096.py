@@ -1,99 +1,313 @@
-"""Problem 96: Su Doku."""
 
+import random
 from pathlib import Path
 
 
-PUZZLE_FILE = Path(__file__).with_name("problem_096_sudoku.txt")
-
-Grid = list[list[int]]
+SUDOKU_FILE = Path(__file__).with_name("0096_sudoku.txt")
 
 
-def read_grids(path: Path = PUZZLE_FILE) -> list[Grid]:
-    grids = []
-    rows = []
+class Sudoku:
+    def __init__(self):
+        self.sud = [[0 for _ in range(9)] for _ in range(9)]
 
-    for line in path.read_text().splitlines():
-        if line.startswith("Grid"):
-            rows = []
-            continue
+    def assign(self, sud):
+        self.sud = sud
 
-        rows.append([int(digit) for digit in line])
+    def row_verification(self):
+        for row in self.sud:
+            values = [number for number in row if number != 0]
+            if len(values) != len(set(values)):
+                return False
 
-        if len(rows) == 9:
-            grids.append(rows)
+        return True
 
-    return grids
+    def column_verification(self):
+        for column_index in range(9):
+            values = []
+
+            for row_index in range(9):
+                number = self.sud[row_index][column_index]
+
+                if number != 0:
+                    values.append(number)
+
+            if len(values) != len(set(values)):
+                return False
+
+        return True
+
+    def square_verification(self):
+        for square_row in range(0, 9, 3):
+            for square_column in range(0, 9, 3):
+                values = []
+
+                for row_index in range(square_row, square_row + 3):
+                    for column_index in range(square_column, square_column + 3):
+                        number = self.sud[row_index][column_index]
+
+                        if number != 0:
+                            values.append(number)
+
+                if len(values) != len(set(values)):
+                    return False
+
+        return True
+
+    def possible_values(self, row_index, column_index):
+        if self.sud[row_index][column_index] != 0:
+            return []
+
+        used_values = set(self.sud[row_index])
+
+        for row in self.sud:
+            used_values.add(row[column_index])
+
+        square_row = (row_index // 3) * 3
+        square_column = (column_index // 3) * 3
+
+        for row in range(square_row, square_row + 3):
+            for column in range(square_column, square_column + 3):
+                used_values.add(self.sud[row][column])
+
+        return [number for number in range(1, 10) if number not in used_values]
+
+    def fill_single_possible_values(self):
+        changed = False
+
+        for row_index in range(9):
+            for column_index in range(9):
+                if self.sud[row_index][column_index] != 0:
+                    continue
+
+                values = self.possible_values(row_index, column_index)
+
+                if len(values) == 1:
+                    self.sud[row_index][column_index] = values[0]
+                    changed = True
+
+        return changed
+
+    def fill_square_unique_locations(self):
+        changed = False
+
+        for square_row in range(0, 9, 3):
+            for square_column in range(0, 9, 3):
+                square_values = []
+
+                for row_index in range(square_row, square_row + 3):
+                    for column_index in range(square_column, square_column + 3):
+                        square_values.append(self.sud[row_index][column_index])
+
+                missing_values = [
+                    number for number in range(1, 10) if number not in square_values
+                ]
+
+                for number in missing_values:
+                    locations = []
+
+                    for row_index in range(square_row, square_row + 3):
+                        for column_index in range(square_column, square_column + 3):
+                            if self.sud[row_index][column_index] != 0:
+                                continue
+
+                            if number in self.possible_values(row_index, column_index):
+                                locations.append((row_index, column_index))
+
+                    if len(locations) == 1:
+                        row_index, column_index = locations[0]
+                        self.sud[row_index][column_index] = number
+                        changed = True
+
+        return changed
+
+    def fill_row_unique_locations(self):
+        changed = False
+
+        for row_index in range(9):
+            row_values = self.sud[row_index]
+            missing_values = [
+                number for number in range(1, 10) if number not in row_values
+            ]
+
+            for number in missing_values:
+                locations = []
+
+                for column_index in range(9):
+                    if self.sud[row_index][column_index] != 0:
+                        continue
+
+                    if number in self.possible_values(row_index, column_index):
+                        locations.append((row_index, column_index))
+
+                if len(locations) == 1:
+                    row_index, column_index = locations[0]
+                    self.sud[row_index][column_index] = number
+                    changed = True
+
+        return changed
+
+    def fill_column_unique_locations(self):
+        changed = False
+
+        for column_index in range(9):
+            column_values = []
+
+            for row_index in range(9):
+                column_values.append(self.sud[row_index][column_index])
+
+            missing_values = [
+                number for number in range(1, 10) if number not in column_values
+            ]
+
+            for number in missing_values:
+                locations = []
+
+                for row_index in range(9):
+                    if self.sud[row_index][column_index] != 0:
+                        continue
+
+                    if number in self.possible_values(row_index, column_index):
+                        locations.append((row_index, column_index))
+
+                if len(locations) == 1:
+                    row_index, column_index = locations[0]
+                    self.sud[row_index][column_index] = number
+                    changed = True
+
+        return changed
+
+    def solve_deterministic(self):
+        changed = True
+
+        while changed:
+            changed = self.fill_single_possible_values()
+            changed = self.fill_square_unique_locations() or changed
+            changed = self.fill_row_unique_locations() or changed
+            changed = self.fill_column_unique_locations() or changed
+
+        return self.sud
+
+    def is_eligible(self):
+        return (
+            self.row_verification()
+            and self.column_verification()
+            and self.square_verification()
+        )
+
+    def find_guess_location(self):
+        best_location = None
+        best_values = []
+
+        for row_index in range(9):
+            for column_index in range(9):
+                if self.sud[row_index][column_index] != 0:
+                    continue
+
+                values = self.possible_values(row_index, column_index)
+
+                if len(values) == 0:
+                    return row_index, column_index, []
+
+                if best_location is None or len(values) < len(best_values):
+                    best_location = (row_index, column_index)
+                    best_values = values
+
+        if best_location is None:
+            return None, None, []
+
+        return best_location[0], best_location[1], best_values
+
+    def solve_with_guesses(self):
+        self.solve_deterministic()
+
+        if not self.is_eligible():
+            return False
+
+        if self.is_solved():
+            return True
+
+        row_index, column_index, values = self.find_guess_location()
+
+        if len(values) == 0:
+            return False
+
+        random.shuffle(values)
+
+        for value in values:
+            saved_sudoku = [row[:] for row in self.sud]
+            self.sud[row_index][column_index] = value
+
+            if self.solve_with_guesses():
+                return True
+
+            self.sud = saved_sudoku
+
+        return False
+
+    def solve(self):
+        self.solve_with_guesses()
+        return self.sud
+
+    def is_solved(self):
+        for row in self.sud:
+            if 0 in row:
+                return False
+
+        return self.is_eligible()
+
+    def top_left_number(self):
+        return self.sud[0][0] * 100 + self.sud[0][1] * 10 + self.sud[0][2]
 
 
-def candidates(grid: Grid, row: int, col: int) -> set[int]:
-    used = set(grid[row])
-    used.update(grid[r][col] for r in range(9))
+def read_sudokus(file_name):
+    sudokus = []
 
-    box_row = row - row % 3
-    box_col = col - col % 3
+    with open(file_name) as file:
+        rows = []
 
-    for r in range(box_row, box_row + 3):
-        for c in range(box_col, box_col + 3):
-            used.add(grid[r][c])
+        for line in file:
+            line = line.strip()
 
-    return set(range(1, 10)) - used
-
-
-def next_empty_cell(grid: Grid) -> tuple[int, int, set[int]] | None:
-    best = None
-
-    for row in range(9):
-        for col in range(9):
-            if grid[row][col] != 0:
+            if line.startswith("Grid"):
+                rows = []
                 continue
 
-            values = candidates(grid, row, col)
+            rows.append([int(number) for number in line])
 
-            if best is None or len(values) < len(best[2]):
-                best = (row, col, values)
+            if len(rows) == 9:
+                sudoku = Sudoku()
+                sudoku.assign(rows)
+                sudokus.append(sudoku)
 
-            if len(values) == 0:
-                return best
-
-    return best
-
-
-def solve_grid(grid: Grid) -> Grid | None:
-    cell = next_empty_cell(grid)
-
-    if cell is None:
-        return grid
-
-    row, col, values = cell
-
-    for value in sorted(values):
-        grid[row][col] = value
-
-        if solve_grid(grid) is not None:
-            return grid
-
-        grid[row][col] = 0
-
-    return None
+    return sudokus
 
 
-def top_left_number(grid: Grid) -> int:
-    return grid[0][0] * 100 + grid[0][1] * 10 + grid[0][2]
-
-
-def solve() -> int:
+def answer(file_name):
+    puzzles = read_sudokus(file_name)
     total = 0
 
-    for grid in read_grids():
-        solved = solve_grid([row[:] for row in grid])
+    for puzzle in puzzles:
+        puzzle.solve()
 
-        if solved is None:
-            raise ValueError("A puzzle could not be solved")
+        if not puzzle.is_solved():
+            raise ValueError("Not all puzzles were solved")
 
-        total += top_left_number(solved)
+        total += puzzle.top_left_number()
 
     return total
 
 
 if __name__ == "__main__":
-    print(solve())
+    puzzles = read_sudokus(SUDOKU_FILE)
+    solved_count = 0
+
+    for puzzle in puzzles:
+        puzzle.solve()
+
+        if puzzle.is_solved():
+            solved_count += 1
+
+    print(f"{solved_count} out of {len(puzzles)} puzzles solved")
+    print(f"All puzzles solved: {solved_count == len(puzzles)}")
+    print(f"Answer: {answer(SUDOKU_FILE)}")
+

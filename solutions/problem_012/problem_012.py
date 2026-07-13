@@ -1,37 +1,49 @@
-"""Problem 12: Highly divisible triangular number."""
+from pathlib import Path
 
 
-def divisor_count(number: int) -> int:
-    count = 1
-    factor = 2
+def fac(a):
+	f=[]
+	for i in range(1,int(a/2+1)):
+		if (a/i)%1==0:
+			f.append(i)
+	f.append(a)
+	return f
+def primes(n):
+	primfac = []
+	d = 2
+	while d*d <= n:
+		while (n % d) == 0:
+			primfac.append(d)
+			n/=d
+		d+=1
+	if n > 1:
+		n=int(n)
+		primfac.append(n)
+	return primfac
+n=0
+d=0
+p=1
+for i in range (5,100000000000000000):
+	a=primes(i)
+	b=primes(i+1)
+	a+=b
+	a.sort()
+	a.pop(0)
+	c=1
+	prod=1
+	while c<=len(a):
+		j=a[c-1]
+		b=a.count(j)
+		prod=prod*(b+1)
+		c+=b
+	if prod>500:
+		break
+print(prod)
+print(int(i*(i+1)/2))
 
-    while factor * factor <= number:
-        exponent = 0
-        while number % factor == 0:
-            number //= factor
-            exponent += 1
-
-        if exponent:
-            count *= exponent + 1
-
-        factor += 1 if factor == 2 else 2
-
-    if number > 1:
-        count *= 2
-
-    return count
-
-
-def solve(min_divisors: int = 500) -> int:
-    triangle = 0
-    number = 1
-
-    while True:
-        triangle += number
-        if divisor_count(triangle) > min_divisors:
-            return triangle
-        number += 1
-
-
-if __name__ == "__main__":
-    print(solve())
+# Keep the original side-output beside this solution file.
+file=open(Path(__file__).with_name('a.txt'),'w')
+file.write(str(prod))
+file.write('    ')
+file.write(str(int(i*(i+1)/2)))
+file.close()

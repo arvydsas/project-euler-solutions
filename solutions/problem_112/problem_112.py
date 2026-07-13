@@ -1,23 +1,26 @@
-"""Problem 112: Bouncy numbers."""
+def non_bouncy(n):
+    a = str(n)[0]
+    bool_a = True
+    bool_b = True
+    for i in str(n):
+        if i > a:
+            bool_a = False
+        elif i < a:
+            bool_b = False
+        a = i
+    return bool_a or bool_b
+
+ss = 0
+
+for i in range(0,10**6+6*10**5):
+    if not non_bouncy(i):
+        ss += 1
+    if i > 10**6:
+        if ss/i == 0.99:
+            print(ss, i, ss/i)
+            break
 
 
-def is_bouncy(number: int) -> bool:
-    digits = str(number)
-    return digits != "".join(sorted(digits)) and digits != "".join(sorted(digits, reverse=True))
 
 
-def solve(target_numerator: int = 99, target_denominator: int = 100) -> int:
-    bouncy_count = 0
-    number = 0
 
-    while True:
-        number += 1
-        if is_bouncy(number):
-            bouncy_count += 1
-
-        if bouncy_count * target_denominator == number * target_numerator:
-            return number
-
-
-if __name__ == "__main__":
-    print(solve())

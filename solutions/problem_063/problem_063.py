@@ -1,17 +1,7 @@
-"""Problem 63: Powerful digit counts."""
-
-
-def solve() -> int:
-    count = 0
-    exponent = 1
-
-    while True:
-        matches = sum(1 for base in range(1, 10) if len(str(base**exponent)) == exponent)
-        if matches == 0:
-            return count
-        count += matches
-        exponent += 1
-
-
-if __name__ == "__main__":
-    print(solve())
+import math
+ss = 0
+for n in range(1,1000):
+    ss += math.floor(10*(1-10**(-1/n)))
+    if math.floor(10*(1-10**(-1/n))) < 1:
+        break
+print(ss)

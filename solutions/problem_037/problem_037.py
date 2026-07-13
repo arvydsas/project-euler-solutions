@@ -1,44 +1,23 @@
-"""Problem 37: Truncatable primes."""
+from p_euler import is_prime, prime_gen
 
-
-def is_prime(number: int) -> bool:
-    if number < 2:
+def is_trunc_prime(n):
+    if n < 10:
         return False
-    if number in (2, 3):
-        return True
-    if number % 2 == 0 or number % 3 == 0:
-        return False
-
-    factor = 5
-    while factor * factor <= number:
-        if number % factor == 0 or number % (factor + 2) == 0:
+    for i in range(1,len(str(n))):
+        if not(is_prime(int(str(n)[i:])) and is_prime(int(str(n)[:i]))):
             return False
-        factor += 6
-
     return True
 
-
-def is_truncatable_prime(number: int) -> bool:
-    text = str(number)
-    return number > 10 and is_prime(number) and all(
-        is_prime(int(text[index:])) and is_prime(int(text[:index]))
-        for index in range(1, len(text))
-    )
-
-
-def solve() -> int:
-    total = 0
-    found = 0
-    number = 11
-
-    while found < 11:
-        if is_truncatable_prime(number):
-            total += number
-            found += 1
-        number += 2
-
-    return total
-
-
-if __name__ == "__main__":
-    print(solve())
+print('Generating primes')
+ls = prime_gen(1000000)
+k = 0
+s = 0
+print('Checking for truncatable primes')
+for i in ls:
+    if is_trunc_prime(i):
+        s += i
+        k += 1
+        print(i,' is a truncatable prime')
+        if k==11:
+            break
+print('Sum of 11 truncatable primes is: ',s)

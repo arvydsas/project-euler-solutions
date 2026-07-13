@@ -1,18 +1,11 @@
-"""Problem 71: Ordered fractions."""
+import math
 
+ss = 0
 
-def solve(limit: int = 1_000_000) -> int:
-    best_numerator = 0
-    best_denominator = 1
+for n in range(100,10**6):
+    x = math.floor(3*n/7)/n
+    if x > ss and x != 3/7:
+        ss = x
+        a = n
 
-    for denominator in range(2, limit + 1):
-        numerator = (3 * denominator - 1) // 7
-        if numerator * best_denominator > best_numerator * denominator:
-            best_numerator = numerator
-            best_denominator = denominator
-
-    return best_numerator
-
-
-if __name__ == "__main__":
-    print(solve())
+print(ss, a, math.floor(3*a/7))

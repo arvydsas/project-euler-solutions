@@ -1,21 +1,13 @@
-"""Problem 39: Integer right triangles."""
+max=0
+sols=[]
+for p in range(1,1001):
+	sol=[]
+	for i in range(1,p):
+		for j in range(1,p):
+			if i**2+j**2==(p-i-j)**2 and p-i-j>0:
+				sol.append([i,j,p-i-j])
+	if len(sol)>max:
+		max=len(sol)
+		print(p)
 
-
-def solutions(perimeter: int) -> int:
-    count = 0
-
-    for a in range(1, perimeter // 3):
-        for b in range(a, perimeter // 2):
-            c = perimeter - a - b
-            if a * a + b * b == c * c:
-                count += 1
-
-    return count
-
-
-def solve(limit: int = 1000) -> int:
-    return max(range(1, limit + 1), key=solutions)
-
-
-if __name__ == "__main__":
-    print(solve())
+					
