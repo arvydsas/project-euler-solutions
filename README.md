@@ -2,9 +2,7 @@
 
 Personal solutions for [Project Euler](https://projecteuler.net/) problems.
 
-[![Project Euler profile](https://projecteuler.net/profile/arvydsas.png)](https://projecteuler.net/profile/arvydsas)
-
-Project Euler profile: [arvydsas](https://projecteuler.net/profile/arvydsas)
+![Project Euler profile](https://projecteuler.net/profile/arvydsas.png)
 
 ## Layout
 
